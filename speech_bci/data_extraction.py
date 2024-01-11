@@ -15,16 +15,16 @@ If any changes, write a brief description here and the author:
 - _aggregate_data is and additional, helper function to make the code more readable (Mikołaj Najda)
 
 """
-PATH = 'd:/SPEECH_BCI' # Where the repository was cloned
-import sys
-sys.path.append(PATH)
+# PATH = 'd:/SPEECH_BCI' # Where the repository was cloned
+# import sys
+# sys.path.append(PATH)
 
 import mne
 import gc
 import pickle
 import numpy as np
 
-from speech_bci.utilities import sub_name, unify_names
+from utilities import sub_name, unify_names
 
 def Extract_subject_from_BDF(root_dir, N_S, N_B):
     """
