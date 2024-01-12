@@ -1,9 +1,9 @@
-PATH = 'd:/SPEECH_BCI' # Where the repository was cloned
-import sys
-sys.path.append(PATH)
+# PATH = 'd:/SPEECH_BCI' # Where the repository was cloned
+# import sys
+# sys.path.append(PATH)
 
 import numpy as np
-from speech_bci.data_extraction import Extract_data_from_subject
+from data_extraction import Extract_data_from_subject
 
 def test_extract_data_from_subject(root_dir, datatype, N_S):
 
