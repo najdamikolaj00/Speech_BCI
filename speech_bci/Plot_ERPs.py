@@ -101,11 +101,18 @@ for Classes in Classes_list:
         fig= plt.figure(figsize=(20,10))
         axs= fig.add_axes([0.1,0.1,0.8,0.8])
         
+        '''
+        TypeError: _process_plot_var_args.__call__() got multiple values for argument 'axes'
+
+        Had to change plt.plot to axs.plot due to that Error (Dawid Jędrzejewski)
+        '''
+
         # Plot Cues
         if plot_cues_bool:
-            plt.plot([0,0],[-15,15],axes=axs,color='black')
-            plt.plot([0.5,0.5],[-15,15],axes=axs,color='black')
-            plt.plot([3,3],[-15,15],axes=axs,color='black')
+            axs.plot([0, 0], [-15, 15], color='black')
+            axs.plot([0.5, 0.5], [-15, 15], color='black')
+            axs.plot([3, 3], [-15, 15], color='black')
+
         
         # Plot ERPs
         X_averaged.plot(spatial_colors = spatial_colors, picks = picks, ylim = ylim, axes = axs, xlim= [t_start , t_end])
