@@ -4,6 +4,13 @@
 @author: Nicolás Nieto - nnieto@sinc.unl.edu.ar
 
 PSD - Plotting
+
+- in filter_by_class and filter_by_condition, 'Condition' and 'Class' parameters
+were changed to 'condition' and 'class_condition' due to changes in Data_processing.py (Michał Madej)
+
+- root_dir and save_dir paths changed (Michał Madej)
+
+- changed A26 channel to all A channels in Data Paremeters (Michał Madej)
 """
 
 # In[] Imports modules
@@ -86,10 +93,10 @@ for Classes in Classes_list:
             X , Y = Extract_data_from_subject(root_dir, N_S, datatype)
         
             # Filter by condition
-            X_cond , Y_cond = Filter_by_condition(X, Y, Cond)
+            X_cond , Y_cond = Filter_by_condition(X, Y, condition = Cond)
         
             # Filter by class
-            X_class , Y_class =  Filter_by_class(X_cond,Y_cond,Classes)
+            X_class , Y_class =  Filter_by_class(X_cond, Y_cond, class_condition = Classes)
             
             if count == 1:  
                 X_data = X_class
