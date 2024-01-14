@@ -4,7 +4,7 @@
 
 Plot Inter Trial Coherence
 
-- root_dir and save_dir paths changed (Michał Madej)
+- root_spectrograms and save_dir paths changed (Michał Madej)
 """
 # In[] Imports modules
 
