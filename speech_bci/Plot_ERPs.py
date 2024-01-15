@@ -4,6 +4,16 @@
 @author: Nicolás Nieto - nnieto@sinc.unl.edu.ar
 
 Event Related Potentials - Plotting
+
+
+- in filter_by_class and filter_by_condition, 'Condition' and 'Class' parameters
+were changed to 'condition' and 'class_condition' due to changes in Data_processing.py (Michał Madej)
+
+- root_dir and save_dir paths changed (Michał Madej)
+
+- TypeError: _process_plot_var_args.__call__() got multiple values for argument 'axes'
+Had to change plt.plot to axs.plot due to that Error (Dawid Jędrzejewski)
+
 """
 
 # In[] Imports modules
@@ -76,10 +86,10 @@ for Classes in Classes_list:
             X, Y = Extract_data_from_subject(root_dir, N_S, datatype)
         
             # Filter by condition
-            X_cond , Y_cond = Filter_by_condition(X, Y, Cond)
+            X_cond , Y_cond = Filter_by_condition(X, Y, condition = Cond)
         
             # Filter by class
-            X_class , Y_class =  Filter_by_class(X_cond,Y_cond,Classes)
+            X_class , Y_class =  Filter_by_class(X_cond, Y_cond, class_condition = Classes)
             
             if count==1:  
                 X_data = X_class
@@ -101,12 +111,6 @@ for Classes in Classes_list:
         fig= plt.figure(figsize=(20,10))
         axs= fig.add_axes([0.1,0.1,0.8,0.8])
         
-        '''
-        TypeError: _process_plot_var_args.__call__() got multiple values for argument 'axes'
-
-        Had to change plt.plot to axs.plot due to that Error (Dawid Jędrzejewski)
-        '''
-
         # Plot Cues
         if plot_cues_bool:
             axs.plot([0, 0], [-15, 15], color='black')
